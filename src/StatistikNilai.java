@@ -35,6 +35,43 @@ public class StatistikNilai {
         if (daftar.isEmpty()) {
             System.out.println("Belum ada nilai yang tersimpan.");
 
+            int[] jumlahGrade = new int[5];
+            for (int i = 0; i < daftar.size(); i++) {
+                int n = daftar.get(i);
+                if (n >= 90) {
+                    jumlahGrade[0]++;
+                } else if (n >= 80) {
+                    jumlahGrade[1]++;
+                } else if (n >= 70) {
+                    jumlahGrade[2]++;
+                } else if (n >= 60) {
+                    jumlahGrade[3]++;
+                } else {
+                    jumlahGrade[4]++;
+                }
+            }
+            char[] labelGrade = {'A', 'B', 'C', 'D', 'E'};
+            StringBuilder distribusi = new StringBuilder();
+            for (int i = 0; i < jumlahGrade.length; i++) {
+                if (i > 0) {
+                    distribusi.append(" ");
+                }
+                distribusi.append(labelGrade[i]).append("=").append(jumlahGrade[i]);
+            }
+
+            ArrayList<Integer> terurut = new ArrayList<>(daftar);
+            Collections.sort(terurut);
+
+            System.out.println("Nilai tersimpan : " + daftar);
+            System.out.println("Jumlah          : " + daftar.size());
+            System.out.println("Rata-rata       : " + String.format("%.2f", rata));
+            System.out.println("Tertinggi       : " + tertinggi);
+            System.out.println("Terendah        : " + terendah);
+            System.out.println("Di atas rata2   : " + diAtasRata + " orang");
+            System.out.println("Distribusi      : " + distribusi);
+            System.out.println("Terurut         : " + terurut);
+            System.out.println("Urutan asli     : " + daftar);
+
         input.close();
     }
 }
