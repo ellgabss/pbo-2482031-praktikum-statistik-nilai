@@ -30,6 +30,11 @@ public class StatistikNilai {
             daftar.add(nilai);
         } while (nilai != SELESAI);
 
+        System.out.println();
+
+        if (daftar.isEmpty()) {
+            System.out.println("Belum ada nilai yang tersimpan.");
+
         input.close();
     }
 }
